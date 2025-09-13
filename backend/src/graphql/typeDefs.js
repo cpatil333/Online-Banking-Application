@@ -1,6 +1,5 @@
 import { gql } from "apollo-server";
-
-export const typeDefs = gql`
+export const typeDefs = gql `
   scalar DateTime
 
   enum Role {
@@ -81,3 +80,4 @@ export const typeDefs = gql`
     transactions(input: TransactionInput!): Transaction!
   }
 `;
+//# sourceMappingURL=typeDefs.js.map

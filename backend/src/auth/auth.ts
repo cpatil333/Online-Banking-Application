@@ -7,7 +7,7 @@ const SECRET = process.env.SECRET_KEY!;
 
 export type JwtUser = {
   id: number;
-  name: string;
+  fullName: string;
   role: "USER" | "ADMIN";
 };
 

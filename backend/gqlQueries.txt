@@ -1,0 +1,38 @@
+mutation($input: UserInput!){
+  register(input: $input) {
+    id
+    fullName
+    email
+    role
+    imageUrl
+  }
+}
+
+{
+  "input": {
+    "fullName":"Alice Johnson",
+    "email":"alice@example.com",
+    "password":"Password123",
+    "imageUrl":"",
+    "role": "USER"
+  }
+}
+
+mutation ($input: LoginInput!) {
+  login(input: $input) {
+    token
+    user {
+      id
+      fullName
+      email
+    }
+  }
+}
+
+{
+  "input": {
+    "email":"alice@example.com",
+    "password":"Password123",
+  }
+}
+
