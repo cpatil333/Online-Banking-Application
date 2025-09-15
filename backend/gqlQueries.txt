@@ -36,3 +36,37 @@ mutation ($input: LoginInput!) {
   }
 }
 
+mutation ($input: AccountInput!) {
+  createAccount(input: $input) {
+    id
+    balance
+    type
+    userId
+  }
+}
+
+{
+  "input": {
+    "userId":2,
+    "type":"Savings",
+    "balance":5200.00
+  }
+}
+
+mutation($input: TransactionInput!){
+  transactions(input: $input) {
+    id
+    type
+    note
+    amount
+  }
+}
+
+{
+  "input": {
+    "accountId":1,
+    "type":"Withdrawal",
+    "amount":200.00,
+    "note":"ATM Withdrawal"
+  }
+}

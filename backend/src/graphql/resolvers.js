@@ -1,8 +1,6 @@
 import { typeDefs } from "./typeDefs.js";
 import bcrypt from "bcrypt";
-import { getUserFromReq } from "../auth/auth.js";
 import { sign } from "../auth/auth.js";
-import { stringify } from "querystring";
 function requiredRole(ctx, roles) {
     if (!ctx.user || !roles.includes(ctx.user.role)) {
         throw new Error("Not Authorized!");
@@ -54,7 +52,9 @@ export const resolvers = {
             requiredRole(ctx, ["USER", "ADMIN"]);
             return ctx.prisma.account.create({
                 data: {
-                    ...input,
+                    userId: parseInt(input.userId),
+                    type: input.type,
+                    balance: parseFloat(input.balance),
                 },
             });
         },

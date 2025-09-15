@@ -1,9 +1,7 @@
 import { typeDefs } from "./typeDefs.js";
 import bcrypt from "bcrypt";
-import { getUserFromReq } from "../auth/auth.js";
 import type { Context } from "../context.js";
 import { sign } from "../auth/auth.js";
-import { stringify } from "querystring";
 
 function requiredRole(ctx: Context, roles: String[]) {
   if (!ctx.user || !roles.includes(ctx.user.role)) {
@@ -68,7 +66,9 @@ export const resolvers = {
       requiredRole(ctx, ["USER", "ADMIN"]);
       return ctx.prisma.account.create({
         data: {
-          ...input,
+          userId: parseInt(input.userId),
+          type: input.type,
+          balance: parseFloat(input.balance),
         },
       });
     },

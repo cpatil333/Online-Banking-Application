@@ -1,6 +1,7 @@
+// context.ts
 import { PrismaClient } from "@prisma/client";
-import { getUserFromReq } from "./auth/auth.js";
-import type { JwtUser } from "./auth/auth.js";
+import { getUserFromReq } from "./auth/auth.js"; // your jwt utils
+import type { JwtUser } from "./auth/auth.js"; // your jwt utils
 
 const prisma = new PrismaClient();
 
@@ -16,6 +17,6 @@ export async function createContext({
   req: any;
   res: any;
 }): Promise<Context> {
-  const user = getUserFromReq(req);
+  const user = getUserFromReq(req); // extract from Authorization header
   return { prisma, user };
 }
