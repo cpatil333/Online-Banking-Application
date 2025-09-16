@@ -28,9 +28,11 @@ export const Navbar = () => {
         <ul>
           {token ? (
             <>
-              {" "}
               <li>
                 <Link>User</Link>
+              </li>
+              <li>
+                <Link to="/userform">Create User</Link>
               </li>
               <li>
                 <Link>Account</Link>
