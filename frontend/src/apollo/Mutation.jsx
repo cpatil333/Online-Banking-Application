@@ -24,3 +24,25 @@ export const USER_REGISTER = gql`
     }
   }
 `;
+
+export const ADD_ACCOUNT = gql`
+  mutation ($input: AccountInput!) {
+    createAccount(input: $input) {
+      id
+      balance
+      type
+      userId
+    }
+  }
+`;
+
+export const ADD_TRANSACTION = gql`
+  mutation ($input: TransactionInput!) {
+    transactions(input: $input) {
+      id
+      type
+      note
+      amount
+    }
+  }
+`;

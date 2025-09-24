@@ -36,7 +36,7 @@ export const Login = () => {
           },
         },
       });
-      console.log(data);
+      //console.log(data);
       if (data?.login) {
         dispatch(
           setCredentials({

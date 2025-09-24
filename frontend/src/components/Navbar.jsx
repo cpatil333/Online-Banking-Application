@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, replace, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Navbar = () => {
@@ -12,7 +12,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (!token && path !== "/login" && path !== "/register") {
-      navigate("/login");
+      navigate("/login", { replace: true });
     }
   }, [token, path, navigate]);
 
@@ -32,13 +32,10 @@ export const Navbar = () => {
                 <Link>User</Link>
               </li>
               <li>
-                <Link to="/userform">Create User</Link>
+                <Link to="/account-form">Account</Link>
               </li>
               <li>
-                <Link>Account</Link>
-              </li>
-              <li>
-                <Link>Transaction</Link>
+                <Link to="/transaction-form">Transaction</Link>
               </li>
               <li>
                 <Link onClick={logout}>Logout</Link>
@@ -47,10 +44,10 @@ export const Navbar = () => {
           ) : (
             <>
               <li>
-                <Link>Login</Link>
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <Link>Register</Link>
+                <Link to="/register">Register</Link>
               </li>
             </>
           )}

@@ -4,6 +4,8 @@ import { AppLayout } from "./components/AppLayout";
 import { Login } from "./components/Login";
 import { Home } from "./pages/Home";
 import { UserForm } from "./pages/UserForm";
+import { AccountForm } from "./pages/AccountForm";
+import { TransactionForm } from "./pages/TransactionForm";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,8 +22,16 @@ function App() {
           element: <Login />,
         },
         {
-          path: "/userform",
+          path: "/register",
           element: <UserForm />,
+        },
+        {
+          path: "/account-form",
+          element: <AccountForm />,
+        },
+        {
+          path: "/transaction-form",
+          element: <TransactionForm />,
         },
       ],
     },
